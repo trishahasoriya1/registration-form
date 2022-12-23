@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+	<link rel="stylesheet" type="text/css" href="styletr.css">
+</head>
+<body>
+<div class="main" >
+	<div class="register">
+		<h2> Student Data Entry Registration Form </h2>
+		<form id="register" method="post">
+
+			<label>First Name :</label>
+			<br>
+			<input type="text" name="1st Name" id="name" placeholder="Enter Your first Name">
+			<br><br>
+			<label>Your Age :</label>
+			<br>
+			<input type="number" name="age" id="name" placeholder="How old are you?">
+			<br><br>
+			<label>Gender :</label>
+			<br>
+			&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="Gender" value="Male">
+			&nbsp;
+			<span id="male">Male</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="Gender" value="Female">
+			&nbsp;
+			<span id="female">Female</span>
+			<br><br>
+			<label>Email :</label>
+			<br>
+			<input type="email" name="email" id="name" placeholder="Enter Your Valid Email ">
+			<br><br>
+			<label for="psw">Password</label>
+			<br>
+			&nbsp;&nbsp;&nbsp;
+			<input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" At least 8 or more characters" required>
+			<div id="message"><h3>Password must contain the following:</h3>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+				
+<script>
+var myInput = document.getElementById("psw");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+
+</script>
+
+
+			<br><br>
+			<input type="submit" name="submit" value="submit" >
+			<br><br>
+		</form>
+	</div>
+</div>
+</body>
+</html>
